@@ -53,7 +53,8 @@
       "Bash(curl -s \"https://api.github.com/repos/Jameskyzx/Jamesky/actions/runs?per_page=1\")",
       "Bash(curl -s \"https://api.github.com/repos/Jameskyzx/Jamesky/actions/runs?per_page=3\")",
       "Bash(curl -s \"https://jameskyzx.github.io/Jamesky/_astro/\")",
-      "Bash(curl -s \"https://api.github.com/repos/Jameskyzx/Jamesky/deployments?per_page=5\")"
+      "Bash(curl -s \"https://api.github.com/repos/Jameskyzx/Jamesky/deployments?per_page=5\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); r=d['workflow_runs'][0] if d['workflow_runs'] else {}; print\\(f\\\\\"Status: {r.get\\('status'\\)}, Conclusion: {r.get\\('conclusion'\\)}, SHA: {r.get\\('head_sha', 'none'\\)[:7]}\\\\\"\\)\")"
     ],
     "additionalDirectories": [
       "\\tmp\\mizuki-template\\src"
