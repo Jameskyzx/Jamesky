@@ -2,3 +2,5 @@
 node_modules/
 out/
 *.mdx.bak
+.claude/settings.local.json
+.claude/
