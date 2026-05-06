@@ -32,7 +32,27 @@
       "WebFetch(domain:nutpsy.github.io)",
       "Bash(curl -sI \"https://nutpsy.github.io/FRAGMENT/\")",
       "Bash(curl -s \"https://nutpsy.github.io/FRAGMENT/\")",
-      "Bash(curl -s \"https://nutpsy.github.io/FRAGMENT/style.css\")"
+      "Bash(curl -s \"https://nutpsy.github.io/FRAGMENT/style.css\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/LyraVoid/Mizuki/master/README.zh.md\")",
+      "Bash(curl -sL \"https://api.github.com/repos/LyraVoid/Mizuki\")",
+      "Bash(curl -s \"https://api.github.com/repos/LyraVoid/Mizuki/readme\")",
+      "Bash(curl -s \"https://api.github.com/repos/LyraVoid/Mizuki/contents/\")",
+      "Bash(curl -s \"https://api.github.com/repos/LyraVoid/Mizuki/contents/src/config.ts\")",
+      "Bash(python3 -c \"import sys,json,base64; print\\(base64.b64decode\\(json.load\\(sys.stdin\\)['content']\\).decode\\('utf-8'\\)\\)\")",
+      "Bash(curl -s \"https://api.github.com/repos/LyraVoid/Mizuki/contents/src/config.ts\" -o /tmp/config.json)",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"https://api.github.com/repos/LyraVoid/Mizuki/contents/src/config.ts\" -o /tmp/config_raw.json)",
+      "Bash(where pnpm *)",
+      "Bash(where npm *)",
+      "Bash(npm --version)",
+      "Bash(cmd /c \"where node\")",
+      "Bash(cmd /c \"node --version\")",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Read(//c/Users/5/AppData/Roaming/npm/**)",
+      "Bash(cp /tmp/mizuki-template/src/config.ts f:/project/website/src/config.ts 2>/dev/null && head -100 f:/project/website/src/config.ts)"
+    ],
+    "additionalDirectories": [
+      "\\tmp\\mizuki-template\\src"
     ]
   }
 }
