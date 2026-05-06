@@ -7,7 +7,15 @@
       "Bash(git remote *)",
       "Bash(git branch *)",
       "Bash(git push *)",
-      "Bash(git fetch *)"
+      "Bash(git fetch *)",
+      "Bash(ping github.com -n 3)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(ls -la ~/.ssh/ 2>/dev/null || echo \"No .ssh directory\")",
+      "Read(//c/Users/5/.ssh/**)",
+      "Bash(curl -s --connect-timeout 10 https://api.github.com)",
+      "Bash(where gh *)",
+      "Bash(GIT_SSH_COMMAND=\"ssh -o StrictHostKeyChecking=no\" git push -u origin main)",
+      "Bash(ssh-keygen -t ed25519 -C \"jamesky@blog\" -f ~/.ssh/id_ed25519 -N \"\")"
     ]
   }
 }
