@@ -10,7 +10,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		title: "KINGS",
 		artist: "angela",
 		cover: "",
-		url: "assets/music/angela - KINGS.flac",
+		url: "/Jamesky/assets/music/angela - KINGS.flac",
 		duration: 0,
 	},
 	{
@@ -18,7 +18,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		title: "月華 (tsukihana)",
 		artist: "北出菜奈",
 		cover: "",
-		url: "assets/music/北出菜奈 - 月華 -tsukihana-.ogg",
+		url: "/Jamesky/assets/music/北出菜奈 - 月華 -tsukihana-.ogg",
 		duration: 0,
 	},
 	{
@@ -26,7 +26,7 @@ export const LOCAL_PLAYLIST: Song[] = [
 		title: "万象将醒",
 		artist: "铁痕电台-MSR _ 八点四十八",
 		cover: "",
-		url: "assets/music/铁痕电台-MSR _ 八点四十八 - 万象将醒.flac",
+		url: "/Jamesky/assets/music/铁痕电台-MSR _ 八点四十八 - 万象将醒.flac",
 		duration: 0,
 	},
 ];
