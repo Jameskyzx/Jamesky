@@ -4,7 +4,32 @@ export const STORAGE_KEY_VOLUME = "music-player-volume";
 
 export const DEFAULT_VOLUME = 0.7;
 
-export const LOCAL_PLAYLIST: Song[] = [];
+export const LOCAL_PLAYLIST: Song[] = [
+	{
+		id: 1,
+		title: "KINGS",
+		artist: "angela",
+		cover: "",
+		url: "assets/music/angela - KINGS.flac",
+		duration: 0,
+	},
+	{
+		id: 2,
+		title: "月華 (tsukihana)",
+		artist: "北出菜奈",
+		cover: "",
+		url: "assets/music/北出菜奈 - 月華 -tsukihana-.ogg",
+		duration: 0,
+	},
+	{
+		id: 3,
+		title: "万象将醒",
+		artist: "铁痕电台-MSR _ 八点四十八",
+		cover: "",
+		url: "assets/music/铁痕电台-MSR _ 八点四十八 - 万象将醒.flac",
+		duration: 0,
+	},
+];
 
 export const DEFAULT_SONG: Song = {
 	title: "Sample Song",
