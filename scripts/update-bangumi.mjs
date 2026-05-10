@@ -62,12 +62,13 @@ async function fetchBangumiData() {
       const html = await fetchText(url);
 
       // Extract anime from HTML
-      // Pattern: <a href="/subject/ID"><img src="COVER"></a><small>TITLE</small>
-      const subjectRegex = /<a href="\/subject\/(\d+)"[^>]*>\s*<img src="([^"]+)"[^>]*>\s*<\/a>\s*<small>([^<]+)<\/small>/g;
+      // Pattern: <a href="/subject/ID" class="subjectCover cover ll"><img src="COVER"></a>
+      const subjectRegex = /<a href="\/subject\/(\d+)" class="subjectCover cover ll">\s*<img src="([^"]+)"[^>]*>\s*<\/a>\s*<a href="\/subject\/\d+" class="l">([^<]+)<\/a>\s*<small class="grey">([^<]+)<\/small>/g;
       let match;
       while ((match = subjectRegex.exec(html)) !== null) {
+        // match[2]=cover, match[3]=chinese title, match[4]=japanese title
         allAnime.push({
-          title: match[3].trim(),
+          title: match[3].trim() || match[4].trim(),
           cover: match[2],
           link: `https://bgm.tv/subject/${match[1]}`,
           status: t.status,
