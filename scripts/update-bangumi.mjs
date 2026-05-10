@@ -32,19 +32,24 @@ async function fetchBangumiData() {
     // Handle both array response and object response
     const items = Array.isArray(data) ? data : (data.data || []);
 
-    const animeList = items.map((item) => ({
-      title: item.subject?.name || item.subject?.name_cn || "Unknown",
-      cover: item.subject?.images?.large || "",
-      link: `https://bgm.tv/subject/${item.subject?.id}`,
-      status: mapStatus(item.status),
-      rating: item.subject?.score || 0,
-      progress: item.episode || 0,
-      totalEpisodes: item.subject?.eps || 12,
-      description: "",
-      year: item.subject?.date?.split("-")[0] || "",
-      studio: "",
-      genre: [],
-    }));
+    const animeList = items.map((item) => {
+      const title = item.subject?.name || item.subject?.name_cn || "Unknown";
+      const status = mapStatus(item.status);
+      console.log(`Anime: ${title}, raw status: "${item.status}", mapped: ${status}`);
+      return {
+        title,
+        cover: item.subject?.images?.large || "",
+        link: `https://bgm.tv/subject/${item.subject?.id}`,
+        status,
+        rating: item.subject?.score || 0,
+        progress: item.episode || 0,
+        totalEpisodes: item.subject?.eps || 12,
+        description: "",
+        year: item.subject?.date?.split("-")[0] || "",
+        studio: "",
+        genre: [],
+      };
+    });
 
     fs.writeFileSync(OUTPUT_PATH, JSON.stringify(animeList, null, 2), "utf-8");
     console.log(`Saved ${animeList.length} anime to ${OUTPUT_PATH}`);
@@ -55,6 +60,7 @@ async function fetchBangumiData() {
 }
 
 function mapStatus(status) {
+  console.log(`Mapping status: "${status}"`);
   const map = {
     doing: "watching",
     on_hold: "onhold",
