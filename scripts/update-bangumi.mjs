@@ -8,11 +8,11 @@ async function fetchBangumiData() {
   console.log(`Fetching Bangumi data for user ${USER_ID}...`);
 
   try {
-    // Query ALL anime collection types at once
-    // subject_type=1 filters to anime media type
-    // type values: 1=wish, 2=doing(watching), 3=collect(watched), 4=on_hold, 5=dropped
-    const url = `https://api.bgm.tv/v0/users/${USER_ID}/collections?subject_type=1&limit=200&offset=0`;
-    console.log(`Fetching Bangumi anime collections: ${url}`);
+    // subject_type=1=anime, 2=manga, 3=music, 4=game, 6=real
+    // type=1=wish, 2=do(watching), 3=collect(watched), 4=on_hold, 5=dropped
+    // Fetch manga (subject_type=2) since user has no anime
+    const url = `https://api.bgm.tv/v0/users/${USER_ID}/collections?subject_type=2&limit=200&offset=0`;
+    console.log(`Fetching Bangumi collections: ${url}`);
 
     const response = await fetch(url, { headers: { "User-Agent": "MizukiBlog/1.0", "Content-Type": "application/json" } });
 
@@ -22,7 +22,7 @@ async function fetchBangumiData() {
 
     const data = await response.json();
     const items = data.data || [];
-    console.log(`Total anime items: ${items.length}`);
+    console.log(`Total items: ${items.length}`);
 
     const animeList = items.map((item) => {
       const title = item.subject?.name || item.subject?.name_cn || "Unknown";
