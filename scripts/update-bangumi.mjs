@@ -118,12 +118,13 @@ async function fetchBangumiData() {
       for (const item of items) {
         console.log(`  Fetching API details for ${item.title} (${item.id})...`);
         const details = await fetchSubjectDetails(item.id);
+        console.log(`  ${item.title}: HTML rating=${item.userRating} API rating=${details.rating}`);
         allAnime.push({
           title: item.title,
           cover: item.cover,
           link: `https://bgm.tv/subject/${item.id}`,
           status: t.status,
-          rating: details.rating || item.userRating,
+          rating: item.userRating || details.rating,
           progress: 0,
           totalEpisodes: details.totalEpisodes,
           description: details.description,
