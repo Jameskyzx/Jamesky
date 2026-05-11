@@ -29,12 +29,18 @@ function parseAnimeFromHTML(html) {
     const block = itemMatch[2];
     const coverMatch = block.match(/<img src="([^"]+)"[^>]*class="cover"[^>]*>/);
     const titleMatch = block.match(/<a href="\/subject\/\d+" class="l">([^<]+)<\/a>/);
+    const ratingMatch = block.match(/starlight stars(\d+)/);
     if (coverMatch && titleMatch) {
       let cover = coverMatch[1];
       if (cover.startsWith("//")) {
         cover = "https://" + cover.slice(2);
       }
-      results.push({ id: itemId, cover, title: titleMatch[1].trim() });
+      results.push({
+        id: itemId,
+        cover,
+        title: titleMatch[1].trim(),
+        userRating: ratingMatch ? parseInt(ratingMatch[1], 10) : 0,
+      });
     }
   }
   return results;
@@ -117,7 +123,7 @@ async function fetchBangumiData() {
           cover: item.cover,
           link: `https://bgm.tv/subject/${item.id}`,
           status: t.status,
-          rating: details.rating,
+          rating: details.rating || item.userRating,
           progress: 0,
           totalEpisodes: details.totalEpisodes,
           description: details.description,
