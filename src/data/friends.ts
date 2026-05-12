@@ -76,6 +76,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://developer.mozilla.org",
 		tags: ["Docs", "Reference"],
 	},
+	{
+		id: 9,
+		title: "碎屑",
+		imgurl: "https://nutpsy.github.io/FRAGMENT/favicon.ico",
+		desc: "碎屑 - 个人空间",
+		siteurl: "https://nutpsy.github.io/FRAGMENT",
+		tags: ["Blog", "Personal"],
+	},
 ];
 
 // 获取所有友情链接数据
